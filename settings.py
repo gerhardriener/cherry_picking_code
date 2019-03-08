@@ -57,7 +57,6 @@ USE_POINTS = True
 ROOMS = [
     {
         'name': 'econ_class',
-        'display_name': 'Experimental Economics Classroom Lab',
     },
 ]
 

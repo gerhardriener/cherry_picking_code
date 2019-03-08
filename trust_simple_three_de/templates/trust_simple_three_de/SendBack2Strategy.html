@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block content %}
+
+    <h3>Sie sind Teilnehmer B2</h3>
+
+    <p>
+        Sie treffen Ihre Entscheidung angenommen, dass Teilnehmer A "Option R" gewählt hat.
+    </p>
+
+    <p>
+       Sie können nun Ihre Entscheidung abhängig von der Wahl des Teilnehmers B1 treffen.
+    </p>
+
+    {% formfield group.sent_back_amount_2_if_A label="Ihre Wahl wenn B1 Option L wählt" %}
+
+    {% formfield group.sent_back_amount_2_if_B label="Ihre Wahl wenn B1 Option R wählt" %}
+
+    {% next_button %}
+
+    {% include Constants.instructions_decision %}
+
+{% endblock %}

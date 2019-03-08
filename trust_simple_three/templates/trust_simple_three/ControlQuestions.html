@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Control questions
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Please answer the following three questions.
+    </p>
+
+    {% formfield player.CQ_maxA label="Maximum amount A can receive" %}
+
+    If Participant <b>A</b>  chooses Option R and Participant  <b>B1</b> chooses Option L and Participant <b>B2</b> chooses Option R, how much does Participant <b>B2</b> receive?
+
+    {% formfield player.CQ_payoff label="How much does B2 receive" %}
+
+    {% formfield player.CQ_sumtask label="What is the sum of 3+8" %}
+
+
+    {% next_button %}
+
+    {% include Constants.instructions_decision %}
+
+{% endblock %}

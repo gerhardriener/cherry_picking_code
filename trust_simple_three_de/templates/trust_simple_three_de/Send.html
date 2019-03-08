@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block content %}
+
+
+
+    <h3>
+    Sie sind Teilnehmer A.
+    </h3>
+
+    {% formfield group.sent_amount label="Ihre Wahl" %}
+
+    {% next_button %}
+
+    {% include Constants.instructions_decision %}
+
+{% endblock %}

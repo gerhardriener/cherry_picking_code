@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Entscheidung
+{% endblock %}
+
+{% block content %}
+    <p>You are Participant <b>B2</b></p>
+
+    <p>
+     <b>B1</b> chose
+        {% if sent_back_amount_1 == 0 %}
+            <b>Option L</b>b
+        {% else %}
+            <b>Option R</b>
+        {% endif %}
+    </p>
+
+    {% formfield group.sent_back_amount_2 label="Your choice" %}
+
+    {% next_button %}
+
+    {% include Constants.instructions_decision %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+    <p>You are Participant <b>B2</b></p>
+
+    <p>
+       You can condition your choice on <b>B1</b>'s choice.
+    </p>
+
+    {% formfield group.sent_back_amount_2_if_A label="Your choice if <b>B1</b> chose Option L" %}
+
+    {% formfield group.sent_back_amount_2_if_B label="Your choice if <b>B1</b> chose Option R" %}
+
+    {% next_button %}
+
+    {% include Constants.instructions_decision %}
+
+{% endblock %}

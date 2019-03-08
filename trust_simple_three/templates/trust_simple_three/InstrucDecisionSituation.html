@@ -1,0 +1,50 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3> Decision situation</h3>
+     <p>
+         Participant A can first choose between "Option L" and "Option R".
+     </p>
+     <p>
+         When choosing Option L  the payments are 5 ECU for Participant <b>A</b>, 5 ECU for Participant <b>B1</b> and 5 ECU for Participant <b>B2</b>.
+     </p>
+
+        <p>
+         If Option R is chosen by participant <b>A</b>, the payoffs are determined by <b>B1</b> and <b>B2</b>.
+            <b>B1</b> and <b>B2</b> can chose between two options:
+         <ul>
+            <li> "Option L" means for A a payment of 0 ECU and for the respective participant <b>B</b> 14 ECU.  </li>
+            <li> "Option R" means for A a payment of 6 ECU and for the respective participant <b>B</b> 10 ECU. </li>
+         </ul>
+
+        <b> Total payment for participant A is the sum of the decisions of participant B1 und B2.</b>
+    </p>
+    <p>
+        The choice of player <b>B1</b> and <b>B2</b> are asked independetly of the choice of participant <b>A</b>.
+        The decisions of the Bs are relevant when A chooses Option R, however   you will always take a decision, assuming that Player A has chosen "Option R".
+            </p>
+    </p>
+    <p>
+        Participant A will not be informed about the decisions of participants B1 and B2. A only learns her own payoff at the end of the experiment.
+    </p>
+
+    {% if treatment == 2 %}
+        <h3>Details for <b>B2</b></h3>
+            <p>
+                If your are in the role of <b>B2</b>, you will learn about the decision of B1 before making your decision.
+            </p>
+
+
+    {% elif treatment == 3 %}
+        <h3>Details for <b>B2</b></h3>
+            <p>
+                If you are in the role of <b>B2</b> you can base your decision on the decision of <b>B1</b>.
+                This means that you will be asked how you decide for each possible decision for  <b>B1</b>.
+            </p>
+    {% endif %}
+
+
+    </div>
+</div>

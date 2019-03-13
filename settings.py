@@ -14,7 +14,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 mturk_hit_settings = {
     'keywords': ['bonus', 'study'],
-    'title': 'Economic experiment',
+    'title': 'Academic experiment',
     'description': 'This is an economic experiment where you will be forming a group with two other persons. Your payoff will be determined by your decision and the decision of the others.',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',

@@ -176,11 +176,9 @@ class ResultsWaitPage(WaitPage):
 
 
 page_sequence = [
-    # StartWP,
     Introduction,
     ControlQuestions,
     Send,
-    # WaitForP1,
     SendBack1,
     WaitForP1,
     WaitForP2,
@@ -189,6 +187,5 @@ page_sequence = [
     SendBack2DirectHypo,
     SendBack2Strategy,
     ResultsWaitPage,
-    # PageToShowOnlyToParticipantsWhoExitedTheExp,
     Results,
 ]

@@ -1,12 +1,13 @@
-{% extends "global/Base.html" %}
-{% load otree_tags %}
+{% extends "otree/MTurkPreview.html" %}
+{% load otree %}
+
 
 {% block title %}Please read this before clicking "Accept"{% endblock %}
 
 {% block content %}
     <p>
         This HIT is an academic experiment on decision making conducted by the researchers
-        from the University of Zürich.
+        from the Universities of Jena and Düsseldorf.
     </p>
 
     <p>
@@ -32,6 +33,6 @@
      </p>
      <p>
        In case of any issues, please contact us via:
-    <a href="mailto:chapkovskii@soziologie.uzh.ch" target="_top">chapkovskii@soziologie.uzh.ch</a>
+    <a href="mailto:riener@dice.hhu.de" target="_top">riener@dice.hhu.de</a>
      </p>
 {% endblock %}

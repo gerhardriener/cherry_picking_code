@@ -18,19 +18,26 @@ mturk_hit_settings = {
     'description': 'This is an economic experiment where you will be forming a group with two other persons. Your payoff will be determined by your decision and the decision of the others.',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 10,
+    'minutes_allotted_per_assignment': 15,
     'expiration_hours': 24,  # 7 days
     # 'grant_qualification_id': 'YOUR_QUALIFICATION_ID_HERE',
     # to prevent retakes
-    'qualification_requirements': []
+    'qualification_requirements': [
+      {'QualificationTypeId': "00000000000000000071",
+       'Comparator': "EqualTo",
+       'LocaleValues': [{'Country': "US"}]},
+      {'QualificationTypeId': "00000000000000000040",
+       'Comparator': "GreaterThan",
+       'IntegerValues': [200]},
+    ]
 }
 
 # Session configuration
 
 
 SESSION_CONFIG_DEFAULTS = {
-    'real_world_currency_per_point': .01,
-    'participation_fee': 1.00,
+    'real_world_currency_per_point': .10,
+    'participation_fee': 1.50,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
 }
@@ -38,7 +45,7 @@ SESSION_CONFIG_DEFAULTS = {
 SESSION_CONFIGS = [
     {
        'name': 'trust_simple_three',
-       'display_name': "Team production",
+       'display_name': "Economic experiment",
        'num_demo_participants': 3,
        'app_sequence': ['trust_simple_three'],
     },
@@ -56,7 +63,8 @@ USE_POINTS = True
 
 ROOMS = [
     {
-        'name': 'econ_class',
+        'name': 'econ101',
+        'display_name': 'Experimental Economics Classroom Lab',
     },
 ]
 

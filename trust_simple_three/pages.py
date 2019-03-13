@@ -1,4 +1,4 @@
-from otree.api import Currency as c, currency_range
+from otree.api import Currency as c
 from ._builtin import Page, WaitPage
 from .models import Constants
 # from otree_mturk_utils.pages import CustomMturkPage, CustomMturkWaitPage
@@ -101,6 +101,12 @@ class SendBack2Direct(Page):
     def is_displayed(self):
         return (self.player.id_in_group == 3 and self.group.treatment == 2)
 
+    def vars_for_template(self):
+        return {
+            'sent_back_amount_1': self.group.sent_back_amount_1,
+            'treatment': self.group.treatment
+        }
+
 
 class SendBack2DirectHypo(Page):
 
@@ -146,19 +152,23 @@ class ResultsWaitPage(WaitPage):
         if group.treatment == 3 and group.sent_back_amount_1 == 0:
             group.sent_back_amount_2 = group.sent_back_amount_2_if_A
         elif group.treatment == 3 and group.sent_back_amount_1 == 1:
-            group_sent_back_amount_2 = group.sent_back_amount_2_if_B
+            group.sent_back_amount_2 = group.sent_back_amount_2_if_B
         else:
             group.sent_back_amount_2 = group.sent_back_amount_2
 
-        p1.payoff = (1 - group.sent_amount) * 5 + group.sent_amount * \
-                    (group.sent_back_amount_1 * 6
-                     + group.sent_back_amount_2 * 6)
-        p2.payoff = (1 - group.sent_amount) * 5 + group.sent_amount * \
-                    (group.sent_back_amount_1 * 10
-                     + (1 - group.sent_back_amount_1) * 14)
-        p3.payoff = (1 - group.sent_amount) * 5 + group.sent_amount * \
-                    (group.sent_back_amount_2 * 10
-                     + (1 - group.sent_back_amount_2) * 14)
+        p1.payoff = c((1 - group.sent_amount) * 5 + group.sent_amount
+                      * (group.sent_back_amount_1 * 6
+                         + group.sent_back_amount_2 * 6)
+                      )
+        p2.payoff = c((1 - group.sent_amount) * 5
+                      + group.sent_amount * (group.sent_back_amount_1 * 10
+                                             + (1 - group.sent_back_amount_1)
+                                             * 14)
+                      )
+        p3.payoff = c((1 - group.sent_amount) * 5 + group.sent_amount
+                      * (group.sent_back_amount_2 * 10
+                         + (1 - group.sent_back_amount_2) * 14)
+                      )
 
 
 # class Results(Page):

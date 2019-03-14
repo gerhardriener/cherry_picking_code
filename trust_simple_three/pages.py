@@ -22,10 +22,19 @@ class Results(Page):
 
 
 class Introduction(Page):
-    timeout_seconds = 600
+    def before_next_page(self):
+        parti = self.request.build_absolute_uri(self.player.participant._start_url())
+        self.request.session["otree"] = parti
+        self.request.session.set_expiry(4838400)
+        timeout_seconds = 600
+        prolific_id_get = self.request.GET.get('PROLIFIC_PID', '')
+
+    form_model = 'player'
+    form_fields = ['prolific_id']
 
     def vars_for_template(self):
-        return {'treatment': self.group.treatment}
+        return {'treatment': self.group.treatment,
+                'prolific_id_get': self.player.prolific_id_get}
 
 
 class ControlQuestions(Page):
@@ -46,7 +55,8 @@ class ControlQuestions(Page):
             return 'This is not correct.'
 
     def vars_for_template(self):
-        return {'treatment': self.group.treatment}
+        return {'treatment': self.group.treatment,
+                'prolific_id_get': self.player.prolific_id_get}
 
 
 class Send(Page):

@@ -33,6 +33,7 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Decision by P1""",
     )
 
@@ -41,6 +42,7 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Decision by P2""",
     )
     sent_back_amount_2 = models.IntegerField(
@@ -48,6 +50,7 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Decision by P3""",
     )
 
@@ -56,6 +59,7 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Hypothetical decision by P3""",
     )
 
@@ -64,6 +68,7 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Decision by P3""",
     )
 
@@ -72,11 +77,14 @@ class Group(BaseGroup):
             [0, 'Option L'],
             [1, 'Option R'],
         ],
+        widget=widgets.RadioSelect,
         doc="""Decision by P3""",
     )
 
 
 class Player(BasePlayer):
+    prolific_id_get = models.StringField()
+    prolific_id = models.StringField()
     CQ_maxA = models.IntegerField(
         choices=[
             [6,  '6 ECU'],
@@ -85,6 +93,7 @@ class Player(BasePlayer):
             [0,  '0 ECU'],
             [14, '14 ECU']
         ],
+        widget=widgets.RadioSelect,
         doc="""Control question: Maximum amount a can earn""",
     )
     CQ_payoff = models.IntegerField(
@@ -95,6 +104,7 @@ class Player(BasePlayer):
             [0,  '0 ECU'],
             [14, '14 ECU']
         ],
+        widget=widgets.RadioSelect,
         doc="""Control question: Payoff of B1""",
     )
 

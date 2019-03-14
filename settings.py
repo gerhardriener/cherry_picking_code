@@ -7,33 +7,7 @@ from os import environ
 # as self.session.config,
 # e.g. self.session.config['participation_fee']
 
-# MTurk
-
-AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
-
-mturk_hit_settings = {
-    'keywords': ['bonus', 'study'],
-    'title': 'Academic experiment',
-    'description': 'This is an economic experiment where you will be forming a group with two other persons. Your payoff will be determined by your decision and the decision of the others.',
-    'frame_height': 500,
-    'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 15,
-    'expiration_hours': 24,  # 7 days
-    # 'grant_qualification_id': 'YOUR_QUALIFICATION_ID_HERE',
-    # to prevent retakes
-    'qualification_requirements': [
-      {'QualificationTypeId': "00000000000000000071",
-       'Comparator': "EqualTo",
-       'LocaleValues': [{'Country': "US"}]},
-      {'QualificationTypeId': "00000000000000000040",
-       'Comparator': "GreaterThan",
-       'IntegerValues': [200]},
-    ]
-}
-
 # Session configuration
-
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': .30,
